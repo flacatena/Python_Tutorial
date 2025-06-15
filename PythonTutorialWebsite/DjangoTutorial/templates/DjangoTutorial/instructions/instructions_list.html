@@ -1,0 +1,22 @@
+{% extends "DjangoTutorial/base.html" %}
+{% block title %}Django Tutorial{% endblock %}
+
+{% block navbar %}
+    <a class="home" href="{% url 'objectives_list' %}">HOME</a>
+{% endblock %}
+
+{% block intro %}
+    <div class="intro">{{objective_id.intro | linebreaks}}</div>
+{% endblock %}
+
+{% block content %}
+{% for instruction in instructions %}
+    <div class = "container">
+        <div class="step">Step {{instruction.step}}</div>
+        <div class="code"><img src="{{instruction.code.url}}"></div>
+        <div class="code_description">{{instruction.code_description | linebreaks}}</div>
+        <div class="reference">{{instruction.reference | linebreaks}}</div>
+    </div>    
+{% endfor %}
+{% endblock %}
+

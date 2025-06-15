@@ -1,0 +1,14 @@
+{% extends "DjangoTutorial/base.html" %}
+
+{% block title %}Django Tutorial{% endblock %}
+
+{% block intro %}
+<p class="home_intro">Hello there, this tutorial will walk you through on how to set up a development environment for Django using different 
+        platform versions and methods. This resource is an ongoing project and more tutorials will be created as time permits.</p>
+{% endblock %}
+
+{% block content %}
+{% for objective in objectives %}
+        <a class="home" href="{% url 'instructions_list' objective.id %}">{{objective.objective_description | linebreaks}}</a>
+{% endfor %}
+{% endblock %}

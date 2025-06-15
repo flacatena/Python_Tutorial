@@ -1,0 +1,80 @@
+* { 
+    box-sizing: border-box;
+}
+
+.container {
+    display: grid;
+    align-items: center;
+    overflow-wrap: normal;
+    padding: 15px;
+    background-color:#772953;
+    
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-areas:
+      ". . st st st st st st . ."
+      ". . co co co co co co . ."
+      ". . de de de de de de . ."
+      ". . re re re re re re . .";
+}
+
+.intro {
+    display: flex;
+    background: #772953;
+    padding: 5px;
+    border: 2px solid #E95420;
+    color: white;
+    justify-content: center;
+    text-align: center;
+}
+
+.container > div {
+    border: 2px solid #E95420;
+    justify-content: center;
+}
+
+.step{
+    grid-area: st;
+    justify-self: center;
+    padding: 5px;
+    color: white;
+}
+
+.code {
+    justify-self: center;
+    grid-area: co;
+}
+
+.code img {
+    width: 100%;
+    height: 100;
+    object-fit: cover;
+}
+
+.code_description {
+    grid-area: de;
+    overflow-wrap: break-word;
+    color: white;
+}
+
+.reference {
+    grid-area: re;
+    color: white;
+}
+
+.home {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    color: blue;
+    background: #E95420;
+    border: 2px solid #E95420;
+}
+
+.home_intro {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    color :#772953;
+    background: whitesmoke;
+    border: 2px solid #E95420;
+}
