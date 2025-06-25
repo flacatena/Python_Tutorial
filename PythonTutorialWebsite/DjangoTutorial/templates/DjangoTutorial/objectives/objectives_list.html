@@ -3,12 +3,13 @@
 {% block title %}Django Tutorial{% endblock %}
 
 {% block intro %}
-<p class="home_intro">Hello there, this tutorial will walk you through on how to set up a development environment for Django using different 
-        platform versions and methods. This resource is an ongoing project and more tutorials will be created as time permits.</p>
+<h2 class="home_intro">This tutorial will walk you through a number of different methods on how to set up a development environment for Django development.</h2>
 {% endblock %}
 
 {% block content %}
 {% for objective in objectives %}
+<div class="objectives">
         <a class="home" href="{% url 'instructions_list' objective.id %}">{{objective.objective_description | linebreaks}}</a>
+</div>
 {% endfor %}
 {% endblock %}

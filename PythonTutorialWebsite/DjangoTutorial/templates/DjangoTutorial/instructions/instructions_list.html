@@ -2,11 +2,11 @@
 {% block title %}Django Tutorial{% endblock %}
 
 {% block navbar %}
-    <a class="home" href="{% url 'objectives_list' %}">HOME</a>
+    <a class="instructions_list_nav" href="{% url 'objectives_list' %}"><h2>Select different Method</h2></a>
 {% endblock %}
 
 {% block intro %}
-    <div class="intro">{{objective_id.intro | linebreaks}}</div>
+    <div class="intro"><h3>{{objective_id.intro | linebreaks}}</h3></div>
 {% endblock %}
 
 {% block content %}

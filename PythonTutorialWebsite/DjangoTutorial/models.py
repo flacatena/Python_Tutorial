@@ -1,7 +1,7 @@
 from django.db import models
 
 class Objectives(models.Model):
-    objective_description = models.CharField(max_length=500)
+    objective_description = models.TextField()
     intro = models.TextField(default='')
     
     class Meta:

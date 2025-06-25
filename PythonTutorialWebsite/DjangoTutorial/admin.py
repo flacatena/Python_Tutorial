@@ -8,5 +8,5 @@ class ObjectivesAdmin(admin.ModelAdmin):
 @admin.register(Instructions)
 class InstructionsAdmin(admin.ModelAdmin):
     list_display = ['objective','step','pk','id']
-    ordering = ('step',)
+    ordering = ('objective','step',)
 
