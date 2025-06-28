@@ -94,11 +94,18 @@
 }
 
 .home_intro {
+    display: flex;
     border: 3px solid #E95420;
     background: whitesmoke;
     justify-content: center;
     text-align: center;
     color :#772953;
-    display: flex;
     padding: 10px;
 }
+
+.intro_pic1 {
+    display: flex;
+    justify-content: center;
+    background: #E95420;
+}
+
