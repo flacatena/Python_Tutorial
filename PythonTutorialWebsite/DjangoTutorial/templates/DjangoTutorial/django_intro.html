@@ -1,0 +1,34 @@
+{% extends "DjangoTutorial/base.html" %}
+{% load static %}
+
+{% block title %}Django Tutorial {% endblock %}
+
+{% block intro %}
+<h1 style="text-align: center;">INTRODUCTION TO DJANGO</h1>
+<h2 class="home_intro" >This is a Django tutorial designed for the purpose of learning and thoroughly unserstand the Django framework. Strong enphasis is 
+placed on the objective of learning Django in depth with many explanations and examples. I believe it's important to take the necessary time to understand
+and learn something from the beginning in order to be able to proficiently use Django or anything else for that matter. This tutorial is structured in a way
+that the material is presented from the gound up and not introuduce any concepts that woudld otherwise be appropriate to learn at a different stage.</h2>
+
+<div class="intro_pic1">
+<img  src ="{% static 'images/django-icon.png'%}" style="height: 50px; width: 50px">
+</div>
+{% endblock %}
+
+{% block content %}
+<a href="{% url 'objectives_list' %}">THE SETUP STAGE</a>
+<br>
+<a href="{% url 'hello_world'  %}">SIMPLE "Hello World" OUTPUT TO WEBPAGE AFTER SET UP STAGE</a>
+<br>
+<a href="#">CREATE MODEL STAGE</a> Coming Soon!
+<br>
+<a href="#">CREATE VIEW STAGE</a> Coming Soon!
+<br>
+<a href="#">CREATE TEMPLATES STAGE</a> Coming Soon!
+<br>
+<a href="#">CREATE URLS STAGE</a> Coming Soon!
+<br>
+<a href="#">CONFIGURATION STAGE</a> Coming Soon!
+<br>
+<a href="#">DEPLOYMENT STAGE</a> Coming Soon!
+{% endblock %}

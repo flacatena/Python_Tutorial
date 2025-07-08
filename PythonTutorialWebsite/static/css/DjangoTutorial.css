@@ -96,11 +96,11 @@
 .home_intro {
     display: flex;
     border: 3px solid #E95420;
-    background: whitesmoke;
+    background: lightgray;
     justify-content: center;
-    text-align: center;
+    text-align: left;
     color :#772953;
-    padding: 10px;
+    padding: 5px;
 }
 
 .intro_pic1 {
