@@ -1,0 +1,29 @@
+{% extends "DjangoTutorial/base.html" %}
+{% load static %}
+
+{% block title %}Django Tutorial{% endblock %}
+
+
+{% block navbar %}
+    <a class="instructions_list_nav" href="{% url 'django_intro' %}"><h2>HOME</h2></a>
+{% endblock %}
+
+{% block intro %}
+<h1 style="text-align: center">What is Django?</h1>
+<h2 class="home_intro">Django is considered a high-level web framework for Python web development; it includes tools and features that makes web development efficient.
+    The framework provides a blueprint for building web applications that includes ready to use code and tools resulting in faster and more manageable development.
+    Django is open source, it's used to build websites and written in Python. </h2>
+<div class="intro_pic1">
+ <img  src ="{% static 'images/django-icon.png'%}" style="height: 50px; width: 50px">
+</div>
+{% endblock %}
+
+{% block content %}
+
+<div class="what_django">
+    <div class="intro_pic2">
+</div>
+    <h2 class="django_points">Fast development / Windows, macOS and Linux compatible / Scalable / Secure / Large support community</h2>
+</div>
+
+{% endblock %}

@@ -109,3 +109,28 @@
     background: #E95420;
 }
 
+.what_django {
+    display: grid;
+    background-color: rgb(31, 189, 31);
+    overflow-wrap: normal;
+    align-items: center;
+    padding: 15px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+        ". p .";
+}
+
+.django_points {
+    grid-area: p;
+    justify-self: center;
+    text-align: center;
+    color: #772953;
+    padding: 5px;
+}
+
+.intro_pic2 {
+    display: flex;
+    justify-content: center;
+    
+}
+

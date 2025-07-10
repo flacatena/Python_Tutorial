@@ -17,3 +17,6 @@ def hello_world(request):
 
 def django_intro(request):
     return render(request,'DjangoTutorial/django_intro.html')
+
+def what_django(request):
+    return render(request, 'DjangoTutorial/what_django.html')
