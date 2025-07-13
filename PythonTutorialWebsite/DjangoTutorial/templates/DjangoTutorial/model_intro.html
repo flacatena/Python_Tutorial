@@ -1,0 +1,19 @@
+{% extends "DjangoTutorial/base.html" %}
+{% load static %}
+
+{% block title %}Django Model{% endblock %}
+
+{% block navbar %}
+    <a class="instructions_list_nav" href="{% url 'django_intro' %}"><h2>HOME</h2></a>
+{% endblock %}
+
+{% block intro %}
+<h1 style="text-align: center">Django Model</h1>
+<h2 class="home_intro">
+    Data is typically stored in a database as tables with rows and columns. 
+    Django implements tables with the use of Python classes. 
+    The Model component of the MVT architecture is implemented in Django by using these Python classes. 
+    A Model in Django is essentially a representation of a table in a database with the attributes of the class representing a table’s fields. 
+    Django’s Object Relational Mapper (ORM) is used as an intermediary to perform database operations which makes it possible for a developer to use Python objects instead of SQL queries. 
+</h2>
+{% endblock %}

@@ -12,18 +12,37 @@
 <h1 style="text-align: center">What is Django?</h1>
 <h2 class="home_intro">Django is considered a high-level web framework for Python web development; it includes tools and features that makes web development efficient.
     The framework provides a blueprint for building web applications that includes ready to use code and tools resulting in faster and more manageable development.
-    Django is open source, it's used to build websites and written in Python. </h2>
-<div class="intro_pic1">
- <img  src ="{% static 'images/django-icon.png'%}" style="height: 50px; width: 50px">
-</div>
+    Django is open source and written in Python. </h2>
+<h1 style="text-align: center">Django Architecture</h1>
 {% endblock %}
 
 {% block content %}
 
-<div class="what_django">
-    <div class="intro_pic2">
-</div>
-    <h2 class="django_points">Fast development / Windows, macOS and Linux compatible / Scalable / Secure / Large support community</h2>
-</div>
+<h2 class="home_intro">
+Django architecture uses a specific design system known as MVT (Model View Template). Each of these three components is responsible for a certain aspect of the framework. 
+With regards to the basic structure of a web application we usually find a front end which is typically a web browser, then we have a location where the application data exists which is typically on a sever in a database and the logic to execute the functions of the web application which is the specific programming languages used. 
+From this perspective we can map out the MVT components to the basic structure of the web application. Using the MVT architecture; the database is implemented with the Model and the programming logic is implemented with the use of the View component, the front end is implemented with the Template. 
+Django is mostly a back-end framework; it includes the templating engine to handle some aspects of basic front-end presentations, but other front-end frameworks technologies are often used for full-stack capabilities.  
+<br><br>
+<span>VIEW</span>
+
+The View component of the MVT architecture is part of the user interface and is responsible for the logic involved in processing the user’s requests and responses. 
+It uses the Model and Template components to complete the process of fetching and rendering data. 
+<br><br>
+<span>MODEL</span>
+
+The Model component of the MVT architecture is responsible for database operations. 
+The Model uses Django’s Object Relational Mapper (ORM) which implements the use of the Python language to interact with databases.  
+<br><br>
+<span>TEMPLATE</span>
+
+The Template component of the MVT architecture is used to display static or dynamic data. 
+Django templates are usually HTML files along with CSS and Javascript. Django Template Language (DTL) is used to display data within the templates. DTL uses special tags within the templates to insert data originating from other components like the Model and View. 
+<br><br>
+The basic functionality of the different components involves the process of accepting a URL that is supplied by a user within a browser which creates a request. 
+This request is handled by the View component which fetches the requested data from the Model component and uses the Template component to present the data to the user. There is another separate component that Django uses to map the supplied URLs from the user to the corresponding logic in the View component and it is referred to as the URL dispatcher. The dispatcher’s basic function is to execute the correct function within the View component that will satisfy the request from the user. 
+</h2>
+   
+
 
 {% endblock %}

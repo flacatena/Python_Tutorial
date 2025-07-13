@@ -20,3 +20,6 @@ def django_intro(request):
 
 def what_django(request):
     return render(request, 'DjangoTutorial/what_django.html')
+
+def model_intro(request):
+    return render(request, 'DjangoTutorial/model_intro.html')

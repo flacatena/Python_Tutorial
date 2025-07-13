@@ -7,5 +7,6 @@ urlpatterns = [
     path('instructions-list/<int:id>', views.instructions_list, name='instructions_list'),
     path('hello_world', views.hello_world, name='hello_world'),
     path('what_django', views.what_django, name='what_django'),
+    path('model_intro', views.model_intro, name="model_intro"),
    
 ]
