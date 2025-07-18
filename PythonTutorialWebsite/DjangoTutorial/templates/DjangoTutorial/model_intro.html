@@ -13,7 +13,72 @@
     Data is typically stored in a database as tables with rows and columns. 
     Django implements tables with the use of Python classes. 
     The Model component of the MVT architecture is implemented in Django by using these Python classes. 
-    A Model in Django is essentially a representation of a table in a database with the attributes of the class representing a table’s fields. 
+    A Model class in Django is essentially a representation of a table in a database with the attributes of the class representing the table’s fields while instances of the class are the records of the table.
     Django’s Object Relational Mapper (ORM) is used as an intermediary to perform database operations which makes it possible for a developer to use Python objects instead of SQL queries. 
 </h2>
+{% endblock %}
+
+{% block content %}
+<h1 style="text-align: center">Creating the Model</h1>
+<h2 class="home_intro">
+    Django keeps track of applications in its registry by referencing the ‘INSTALLED_APPS’ list which is located in the ‘settings.py’ file in the project directory. 
+    For Django to include the myApp application in its registry we need to add the application to the ‘INSTALLED_APPS’ list section of the setting.py file as shown below: 
+<br><br>
+    <span><img src="{% static 'images/myApp_registration.png' %}"> <img src="{% static 'images/settings_tree_directory.png' %}"></span>
+<br><br>
+    The definitions of the Model classes used to implement the structure of the database tables are created in the ‘models.py’ file as shown below.
+    Django automatically creates this file within the directory of the created application after using the ‘startapp’ command.
+    The default contents of the ‘models.py’ file contains the import statement (from django.db import models) which makes the models module available for creating the Model classes that are going to be used to implement the databases. 
+    The classes that are going to be created to represent the database tables are created by extending the ‘Model’ class. 
+<br></br>
+<span> <img src ="{% static 'images/default_models_file.png'%}"> <img src ="{% static 'images/directory_tree_models_file.png' %}"></span>   
+<br><br>
+The classes extend the Model class by including the ‘models.Model’ parent class in the class definition subsequently inheriting from the Model class. 
+By extending the Model class, the newly created class inherit ORM’s functionality which is used for database operations. 
+Below is the Vehicle Model that we will be using to implement the database table with the attributes of the class as the fields. 
+The attributes of the class; type, year and engine_size are basically the columns of the table and when an instance of the Vehicle class is instantiated that particular instance can be considered a row in the table.
+<br><br>
+<span><img src="{% static 'images/vehicle_model.png' %}"></span>
+<br><br>
+After creating a Model which will represent a database table with corresponding fields, Django needs to create the actual database table, and it does that by using the Object Relational Mapper. 
+The ORM uses the python code that the Models are defined with and creates the database operations necessary to create the database. 
+We can think of the ORM as translator from Python to SQL instructions, we can continue to work with Python when creating models for our database and let the ORM worry about the actual SQL queries.  
+When making changes to a Model or creating one for the first time, the database is created or modified by first using the ‘makemigrations’ followed by ‘migrate’ command. 
+The makemigrations command creates a file that contains the specific instructions for creating or modifying the database. 
+The ‘makemigrations’ command does not apply the specific instructions, to apply the changes the ‘migrate’ command is used.
+As shown below, the ‘makemigrations’ command creates the initial file containing the Python code Django uses to produce the specific database backend SQL operations.   
+Django names the file ‘0001_initial.py’ which clearly shows it’s the first migration file created. Also notice the location Django places the file within the migrations folder.
+<br><br>
+<span><img src="{% static 'images/makemigrations_command.png' %}"> <img src="{% static 'images/initial_migration_tree.png' %}"></span>
+<span><img src="{% static 'images/contents_first_migration.png' %}"></span>
+<br><br>
+After using the ‘makemigrations’ command to create the migration file, the ‘migrate’ command is used to apply those migrations to the database as shown below: 
+<br><br>
+<span><img  src="{% static 'images/first_migrate_command.png'%}"></span>
+<br><br>
+So far, we have created a database for our application by creating classes that extend the Model class and included their definitions in the models.py file. 
+Using the ‘makemigrations’ followed by the ‘migrate’ commands enabled us to migrate those changes to build the database. 
+We can manage the data of our newly created models in the database with the help of the Django Admin site. 
+Django comes with the Admin site application which allows us to manage the database using the basic CRUD operations of Create, Read, Update and Delete. 
+In order to use the Admin site to manage the database, the models created need to be registered with the Admin site by creating entries in the Admin.py file as shown below. 
+<br><br>
+<span><img src="{% static 'images/admin_register.png' %}"> <img src="{% static 'images/tree_adminpy.png' %}"></span>
+<br><br>
+In order to use the Admin site to manage our application database we need to create a user account with full access permissions. 
+In the image below the ‘createsuperuser’ command is used to create the superuser account. 
+Accessing the Admin site is accomplished by running the development server, navigating to ‘localhost:8000/admin’ in a web browser and logging in with the superuser credentials created previously. 
+New Vehicle entries can be created by clicking the corresponding buttons in the Admin site. 
+<br><br>
+<span><img src="{% static 'images/superuser_creation.png' %}"> <img src="{% static 'images/run_development_server.png' %}"></span>
+<span><img src="{% static 'images/admin_site_login.png' %}"> <img src="{% static 'images/admin_site_homescreen.png' %}"></span>
+<span><img src="{% static 'images/admin_add_vehicle.png' %}"></span>
+<br><br>
+A few vehicles were created with the Amin site as shown below. Notice how Django names the instantiated vehicles class objects by default. The database now contains data for the Django application ‘myApp’ and can be used by the application. The next stage is to create the Python code that will manipulate this data for any intended purpose. 
+Click on the ‘Create View stage’ on the home page for the next stage.
+<br><br>
+<span><img src="{% static 'images/created_vehicles_admin_site.png'%}"></span>
+
+
+</h2>
+
 {% endblock %}
