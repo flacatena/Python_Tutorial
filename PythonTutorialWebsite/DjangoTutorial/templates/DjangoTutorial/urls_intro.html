@@ -1,0 +1,29 @@
+{% extends "DjangoTutorial/base.html" %}
+{% load static %}
+
+{% block title %}Django URL{% endblock %}
+
+{% block navbar %}
+    <a class="instructions_list_nav" href="{% url 'django_intro'%}"><h2>HOME</h2></a>
+{% endblock %}
+
+{% block intro %}
+<h1 style="text-align: center">Django URL</h1>
+<h2 class="home_intro">
+    Web requests made from a web browser typically involve the input of a URL into the web browser from a user. Django incorporates a system to handle these requests and provide the corresponding responses. 
+</h2>
+
+{% endblock %}
+
+{% block content %}
+<h1 style="text-align:center">Creating the View</h1>
+<h2 class="home_intro">
+    Django handles the requests by cross referencing the URL submitted by the client to a list of URLS known as URL patterns. 
+    Django stores a list of URL patterns in the urls.py file also known as URLconf. 
+    A component of Django named the URL dispatcher matches the URL provided by the client to the list of URLS defined in the urlpatterns list in the urls.py module. 
+    After a match is made a process known as routing takes place. The dispatcher will invoke the corresponding view that is listed in the urlpatterns that matches the supplied URL from the client. 
+    Below is an example of routing where if an empty URL is provided by the client the vehicle_list function in the views.py file is invoked which renders the data via a template. 
+<br><br>
+    <span><img class="pic" src="{% static 'images/myApp_urls.png' %}"></span>
+</h2>
+{% endblock %}

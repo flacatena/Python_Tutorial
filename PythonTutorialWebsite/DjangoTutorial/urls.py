@@ -8,5 +8,8 @@ urlpatterns = [
     path('hello_world', views.hello_world, name='hello_world'),
     path('what_django', views.what_django, name='what_django'),
     path('model_intro', views.model_intro, name="model_intro"),
+    path('views_intro', views.views_intro, name='views_intro'),
+    path('template_intro',views.template_intro, name='template_intro'),
+    path('urls_intro', views.urls_intro, name='urls_intro'),
    
 ]

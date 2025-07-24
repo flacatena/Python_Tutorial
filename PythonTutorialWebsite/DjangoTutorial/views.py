@@ -23,3 +23,13 @@ def what_django(request):
 
 def model_intro(request):
     return render(request, 'DjangoTutorial/model_intro.html')
+
+def views_intro(request):
+    return render(request, 'DjangoTutorial/views_intro.html')
+
+def template_intro(request):
+    return render(request, 'DjangoTutorial/template_intro.html')
+
+def urls_intro(request):
+    return render(request, 'DjangoTutorial/urls_intro.html')
+

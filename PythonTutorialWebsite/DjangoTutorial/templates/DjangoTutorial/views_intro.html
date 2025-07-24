@@ -1,0 +1,28 @@
+{% extends "DjangoTutorial/base.html" %}
+{% load static %}
+
+{% block title %}Django Views{% endblock %}
+
+{% block navbar %}
+    <a class="instructions_list_nav" href="{% url 'django_intro' %}"><h2>HOME</h2></a>
+{% endblock %}
+
+{% block intro %}
+<h1 style="text-align: center">Django Views</h1>
+<h2 class="home_intro">
+Web applications generally respond to user requests by making the requested resource available. 
+The View component of the MVT architecture is implemented in Django with the use of Views which are functions or classes that process and respond to user’s requests. 
+There are two types of views in Django, namely function views and class views. 
+</h2>
+{% endblock %}
+
+{% block content %}
+<h1 style="text-align:center">Creating the View</h1>
+<h2 class="home_intro">
+ Django creates the views.py file automatically when creating the Django app with the ‘startapp’ command. 
+ An example of a function-based view is shown below; these functions are standard Python functions that work on the principle of taking a request and returning a response. 
+ The request is a HttpRequest and the response is a HttpResponse.  
+ <br><br>
+ <span><img class="pic" src="{% static 'images/views_file.png' %}"></span>
+</h2>
+{% endblock %}

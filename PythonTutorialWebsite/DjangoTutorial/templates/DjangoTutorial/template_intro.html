@@ -1,0 +1,32 @@
+{% extends "DjangoTutorial/base.html" %}
+{% load static %}
+
+{% block title %}Django Template{% endblock %}
+
+{% block navbar %}
+    <a class="instructions_list_nav" href="{% url 'django_intro'%}"><h2>Home</h2></a>
+{% endblock %}
+
+{% block intro %}
+<h1 style="text-align: center">Django Templates</h1>
+<h2 class="home_intro">
+When a request is made by a client, the models and views module of a Django application process the request by gathering the requested data along with any data manipulation and returns it to the client. 
+</h2>
+{% endblock %}
+
+{% block content %}
+<h1 style="text-align: center">Creating the Template</h1>
+<h2 class="home_intro">
+
+The Template component of the MVT architecture is implemented in Django with the use of Django templates which is responsible for the presentation aspect of the response made to the client’s request. 
+Django templates are essentially HTML files with embedded Django template tags. These template tags are part of the Django Template Language (DTL) which make the HTML files more dynamic. 
+An example of a Django template is below; it uses Django template tags as shown in the body section of the HTML file to display the values of the fields of the database tables created in the Django admin site which are defined in the Model.py file as classes using the Python language.
+The ouptput is shown in a web browser after running the development server.
+ <br><br>
+ <span><img class="pic" src="{% static 'images/vehicle_model.png' %}"> <img src="{% static 'images/template_intro.png' %}"> <img src="{% static 'images/view_output.png' %}"></span>
+</h2>
+<br><br>
+
+
+{% endblock %}
+
