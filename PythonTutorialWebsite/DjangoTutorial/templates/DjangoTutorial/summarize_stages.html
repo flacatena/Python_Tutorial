@@ -1,0 +1,30 @@
+{% extends "DjangoTutorial/base.html"%}
+{% load static %}
+
+{% block title %}Django URL{% endblock %}
+
+{% block navbar %}
+    <a class="instructions_list_nav" href="{% url 'django_intro'%}"><h2>HOME</h2></a>
+{% endblock %}
+
+{% block intro %}
+    <h1 style="text-align: center">Overview of performed stages.</h1>
+    <h2 class="home_intro">
+    The stages described in this tutorial are Setup, Model, View, Template and URL. 
+    The Setup stage typically is the first stage that needs to be performed first, and the following stages do not have to be performed in the order listed in this tutorial and some modules might not be needed depending on the project. 
+    In this tutorial the model.py was created first and 3 objects of the Vehicle class were created that implement the database records or rows in the table. 
+    The view.py file was created to build the logic that fetched the records in the database and sent that information to the ‘vehicle_list.html’ template for output. 
+    This template was created after the view.py file and it contains Django template tags that print out the values of the fields in the records. 
+    Lastly the URL stage was performed which consist of creating the two urls.py files that keep track of the urlpatterns created and that will be used to match against client supplied URLs. 
+    The development server was run to view the output of the app. 
+    </h2>
+{% endblock %}
+
+{% block content %}
+    <h1 style="text-align:center">Modules created during the stages.</h1>
+    <h2 class="home_intro">
+        <span><img class="pic" src="{% static 'images/modules.png' %}"></span>
+        <span><img class="pic" src="{% static 'images/template.png' %}"></span>
+    </h2>
+{% endblock %}
+

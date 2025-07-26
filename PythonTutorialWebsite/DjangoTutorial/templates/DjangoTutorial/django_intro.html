@@ -16,6 +16,7 @@
 {% endblock %}
 
 {% block content %}
+<div style="text-align: center;">
 <a href="{% url 'what_django' %}">What is Django?</a>
 <br>
 <a href="{% url 'objectives_list' %}">The Setup stage</a>
@@ -30,7 +31,8 @@
 <br>
 <a href="{% url 'urls_intro' %}">Create Url stage</a> 
 <br>
-<a href="#">Configuration stage</a> Coming Soon!
+<a href="{% url 'summarize_stages' %}">Run the developmnent server and view output after coding above stages.</a>
 <br>
 <a href="#">Deployment stage</a> Coming Soon!
+</div>
 {% endblock %}

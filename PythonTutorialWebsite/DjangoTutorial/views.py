@@ -33,3 +33,6 @@ def template_intro(request):
 def urls_intro(request):
     return render(request, 'DjangoTutorial/urls_intro.html')
 
+def summarize_stages(request):
+    return render(request, 'DjangoTutorial/summarize_stages.html')
+
