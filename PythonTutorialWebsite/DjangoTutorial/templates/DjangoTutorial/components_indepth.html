@@ -1,0 +1,31 @@
+{% extends "DjangoTutorial/base.html" %}
+{% load static %}
+
+{% block title %}Django Tutorial{% endblock %}
+
+{% block navbar %}
+    <a class="instructions_list_nav" href="{% url 'django_intro'%}"><h2>HOME</h2></a>
+{% endblock %}
+
+{% block intro %}
+<h1 style="text-align: center">DJANGO COMPONENTS IN DEPTH</h1>
+<h2 class="home_intro">This part of the tutorial will cover the Django main components in more detail by using diagrams and explanations. </h2>
+{% endblock %}
+
+{% block content %}
+<h1 style="text-align: center">URL DISPATCHER</h1>
+<h2 class="home_intro">Django uses the URL Dispatcher to map URL paths with the corresponding Python code that needs to be executed which is found in the views.py file. 
+    The URL Dispatcher consist of a Python module named urls.py which contains the code that maps URL paths to specific code in the views.py module. 
+    Within the urls.py module a variable called urlpatterns holds a list of path() functions that are used to create instances of URL patterns which link to specific code in the view.py module. 
+    When a request is made to a Django application, the supplied URL is matched against the list of URL patterns in the urls.py module. When a match is made the corresponding code in the views.py module is executed to satisfy the request. 
+    <br><br>
+    <span><img class="pic" src="{% static 'images/urlpatterns.png' %}"></span>
+    <br>
+    (1) If the url used is an empty url, this path function will be a match and will be used to satisfy the request.
+    <br>
+    (2) After the requested URL is matched , use the 'vehicle_list' function located in the views.py module.
+    <br>
+    (3) Use this name to reference this specific url from other locations within the application code.
+</h2>
+{% endblock %}
+

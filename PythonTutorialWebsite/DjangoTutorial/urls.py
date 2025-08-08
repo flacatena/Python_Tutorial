@@ -12,4 +12,5 @@ urlpatterns = [
     path('template_intro',views.template_intro, name='template_intro'),
     path('urls_intro', views.urls_intro, name='urls_intro'),
     path('summarize_stages',views.summarize_stages, name='summarize_stages'),   
+    path('components_indepth',views.components_indepth,name='components_indepth'),
 ]

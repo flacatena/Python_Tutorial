@@ -36,3 +36,6 @@ def urls_intro(request):
 def summarize_stages(request):
     return render(request, 'DjangoTutorial/summarize_stages.html')
 
+def components_indepth(request):
+    return render(request, 'DjangoTutorial/components_indepth.html')
+
