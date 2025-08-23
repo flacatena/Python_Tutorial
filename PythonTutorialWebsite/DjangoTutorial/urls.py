@@ -13,4 +13,5 @@ urlpatterns = [
     path('urls_intro', views.urls_intro, name='urls_intro'),
     path('summarize_stages',views.summarize_stages, name='summarize_stages'),   
     path('components_indepth',views.components_indepth,name='components_indepth'),
+    path('url_indepth', views.url_indepth, name='url_indepth'),
 ]

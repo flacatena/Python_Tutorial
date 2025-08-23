@@ -1,0 +1,113 @@
+{% extends "DjangoTutorial/base.html" %}
+{% load static %}
+
+{% block title %}Django Tutorial{% endblock %}
+
+{% block navbar %}
+    <a class="instructions_list_nav" href="{% url 'django_intro'%}"><h2>HOME</h2></a>
+{% endblock %}
+
+{% block content %}
+<h1 style="text-align: center">URL DISPATCHER</h1>
+<h2 class="home_intro">Django uses the URL Dispatcher to map URL paths with the corresponding Python code that needs to be executed which is found in the views.py file. 
+    The URL Dispatcher consist of a Python module named urls.py which contains the code that maps URL paths to specific code in the views.py module. 
+    Within the urls.py module a variable called urlpatterns holds a list of path() functions that are used to create instances of URL patterns which link to specific code in the view.py module. 
+    When a request is made to a Django application, the supplied URL is matched against the list of URL patterns in the urls.py module. When a match is made the corresponding code in the views.py module is executed to satisfy the request. 
+    <br><br>
+    <span><img class="pic" src="{% static 'images/urlpatterns.png' %}"></span>
+    <br>
+    <span><img class="pic" src="{% static 'images/urlpatterns_url_link.png' %}"></span>
+    <br>
+    <span><img class="pic" src="{% static 'images/urlpatterns_views_link.png' %}"></span>
+    <br>
+    <span><img class="pic" src="{% static 'images/urlpatterns_name_link.png' %}"></span>
+    
+    
+    (1) [Route Parameter] If the url supplied is an empty url as shown in the web browser address bar, this path function will be a match and will be used to satisfy the request.
+    <br><br>
+    (2) [View Parameter] After the requested URL is matched , Django will use the 'vehicle_list' function located in the views.py module which in turn will use the vehicle_list.html template to display the output.
+    <br><br>
+    (3) [Name Parameter] The URL pattern can be given a name in order to reference it from other parts of the application. This naming allows for better management of URLs.
+    In the picture above a link is created within a template using url template tags that uses the url pattern named 'vehicle_list' that is defined in the urls.py module.
+    This in turn will call the vehicle_list function within the views.py file. This make it possible to use a specific url by using the name associated with it.
+   </h2>
+    
+    <h1 style="text-align: center">URL DISPATCHER PROCESS</h1>
+<h2 class="home_intro">
+    <span><img class="pic" src="{% static 'images/url_sequence_1.png' %}"></span>
+    <span style="text-align: center">Empty URL entered in browser</span>
+    <br>
+    <span><img class="pic" src="{% static 'images/url_sequence_2.png' %}"></span>
+    <span style="text-align: center">The URL provided in the address bar by a user is matched in the path function in the root urls.py file with an empty value for the route parameter. 
+        The path function uses the 'include' method to transfer the URL routing to the myApp urls.py module for further mapping processing.</span>
+    <br>
+    <span><img class="pic" src="{% static 'images/url_sequence_3.png' %}"></span>
+    <span style="text-align: center">The URL is matched in the myApp urls.py module which transfers to the execution to the 'vehicle_list' function of views.py module.</span>
+    <br>
+    <span><img class="pic" src="{% static 'images/url_sequence_4.png' %}"></span>
+    <span style="text-align: center">The 'vehicle_list' function in the views.py module gathers the data from the database and sends the output to the 'vehicle_list.html' template.</span>
+    <br>
+    <span><img class="pic" src="{% static 'images/url_sequence_5.png' %}"></span>
+    <span style="text-align: center">Template uses Django template tags to processes the output.</span>
+    <br>
+    <span><img class="pic" src="{% static 'images/url_sequence_6.png' %}"></span>
+    <span style="text-align: center">The template displays output in the webpage responding to the request.</span>
+</h2>
+
+<h1 style="text-align: center;">URLconf</h1>
+<h2 class="home_intro">
+    In order for a Django app to respond to requests made from a client it needs to know what code to execute based on the request. 
+    Since clients provide an URL with an HTTP request, Django must use the provided URL to locate the corresponding code to execute and satisfy the request. 
+    In essence Django needs a way to perform routing of URLs in order to respond to the different requests made.   
+    At the heart of URL routing in Django is the URLconf, a Python module with the responsibility of executing specific Python code base on the URL that is included with a HTTP request. 
+    The URLconf module is named 'urls.py' and it’s created automatically by Django when a project is created with the ‘django-admin startproject’ command. Django creates this file at the root of the project directory, and it’s referred to as the ‘root’ urls.py module. 
+    When a request is made and a URL is sent as part of an HTTP request, this module is used to map the URL provided by the request and the URL defined in the urls.py file. 
+    If a match is found the urls.py module will execute the respective code that is found in the view.py module. 
+    <br>
+    There is a second urls.py module which is not created automatically by Django and is created by the programmer when creating a Django app using the ‘python mange.py startapp’ command. 
+    It is not mandatory to create this second urls.py module within an application but a good practice for larger and more complex applications. 
+    Django will use the urls.py module in the project’s root directory when routing URLs, if we wanted to use the urls.py module in the application directory we can use the ‘include’ function within the urlpatterns path functions of the root urls.py module to transfer the routing to the urls.py module in the application directory. 
+    The creation of the urls.py module within the application directory allows for better organization when creating more then one application.
+    A different urls.py module can be made the root urls.py module by modifying the ROOT_URLCONF setting in the setting.py file. The root urls.py module is typically used as the primary URL routing mechanism for project-level URL routing and also for including other application-level urls.py modules. 
+</h2>
+<h1 style="text-align: center">Capturing values from URLs received from a HTTP request</h1>
+<h2 class="home_intro">
+    Values can be included in URLs to determine the specific requested resources. To capture the values within a URL; also known as 'URL parameter capture', Django uses angle brackets ‘<>’ within the urlpatterns path definitions. 
+    The value that is captured can also be converted into a specific type by using path converters. Path converters also perform matching of URLs according to the type specified in the path converter. Basically path converters will look for a specific type from a URL and also convert to a specific type that corresponds to what is needed in the views.py module.
+    <br><br>
+    <span><img class="pic" src="{% static 'images/path_converters_1.png' %}"></span>
+    <br>
+    In the picture above Django uses a path converter 'int' which will accept a value consisting of digits only and will convert the value into an int value in Python. This value is then passed to the views for further processing. 
+    If the value in the URL contains characters that are not digits; Django will consider it a mismatch and not accept the value, if no converter is specified Django will convert the value captured to a string type automatically.
+    As shown below the value is passed to the view functions as an argument with the same name.  
+    <br><br>
+    <span><img class="pic" src="{% static 'images/value_passed_view.png' %}"></span>
+    <br>
+    <h1 style="text-align: center">Custom Path Converters</h1>
+    <h2 class="home_intro">
+    The Django default converters are int, str, slug, path and uuid. 
+    Custom converters can be created by defining a class with the methods ‘to_python()' and ‘to_url()’ along with a ‘regex’ attribute of type string.  
+    In the image below we have the ‘path_converters.py’ module which defines a class that establishes how an URL segment should be mapped, which Python type it should be converted to and also return a string value of the URL segment to be used when converting back to the original URL value.  
+    The URL is first matched with the format of the ‘regex’ regular expression, in this case if the URL is ‘vehicle/1995’, there would be a match and the value ‘1995’ would be passed to the custom path converter named ‘YearConverter’ which would convert the value passed to it with the ‘yearValue’ parameter into an ‘int’ to be used by the application for further processing. 
+    If there is a need to reverse the operation and get the URL value of ‘vehicle/1995’ to be used by the application, that value can be resolved by using the ‘reverse()’ function which would call the ‘to_url(self, yearValue)’ function of the converter. 
+    An example where this custom converter would be needed is if a request is made to show a particular vehicle with a specific year. 
+    The custom converter would check that the value for the year passed with the URL is a 4-digit value and only then move on to converting the value into an ‘int’ to be used in the application’s logic. 
+    <br><br>
+    <span><img class="pic" src="{% static 'images/custom_path_converter_1.png' %}"></span>
+    <br>
+    Below is the 'urls.py' module which shows the 'yyyy' converter being used to match the value passed with the URL which if matched will send the value to the 'vehicle_list' function in the 'views.py' module as an 'int' value returned by the 'to_phython()' function of the converter.
+    Also shown in the picture is the registration of the custom path converter "YearConverter" referenced with name 'yyyy'.
+    <br> <br>
+    <span><img class="pic" src="{% static 'images/custom_path_converter_2.png' %}"></span>
+    <br>
+</h2>
+<h1 style="text-align: center">Using Regular Expressions to define URL patterns. </h1>
+<h2 class="home_intro">
+    An alternative to using path() function to define URL patterns is by using re_path() functions. 
+    The re_path() functions allow for more complex URL patterns matching by using Python’s regular expressions which are part of the Python’s ‘re’ module. 
+    As opposed to using path() which automatically converts values to different types, re_path() does not convert the value type, and the conversion must be handled in the view function. An example of a re_path() function is shown below, it matches the year to 4 digits and works in a similar way as the path() function described previously with the exception of conversions to a specific type, the re_path() will pass the value to the view function as a string by default. 
+    <br><br>
+    <span><img class="pic" src="{% static 'images/url_regular_expression_1.png' %}"></span>
+</h2>
+{% endblock %}
+
